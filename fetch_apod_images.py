@@ -1,7 +1,7 @@
 import requests
 import os
 from urllib.parse import unquote, urlparse
-from dowload_images import download_images
+from dowload_images import download_image
 
 
 def get_extension(url):
@@ -21,7 +21,7 @@ def fetch_nasa_apod(nasa_token):
         if nasa_image.get("media_type") == "image":
             nasa_link_image = nasa_image["url"] or nasa_image["hdurl"]
         extension, filename = get_extension(nasa_link_image)
-        download_images(nasa_link_image, f"nasa{filename}{extension}")
+        download_image(nasa_link_image, f"nasa{filename}{extension}")
 
 
 def main():

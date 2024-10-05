@@ -1,7 +1,7 @@
 import datetime
 import os
 import requests
-from dowload_images import download_images
+from dowload_images import download_image
 
 
 def fetch_nasa_epic(nasa_token):
@@ -15,7 +15,7 @@ def fetch_nasa_epic(nasa_token):
         formatted_epic_date = datetime.datetime.fromisoformat(
             epic_date).strftime("%Y/%m/%d")
         epic_image_url = f"https://api.nasa.gov/EPIC/archive/natural/{formatted_epic_date}/png/{epic_name}.png?api_key={nasa_token}"
-        download_images(epic_image_url, f"epic{epic_name}.png")
+        download_image(epic_image_url, f"epic{epic_name}.png")
 
 
 def main():
